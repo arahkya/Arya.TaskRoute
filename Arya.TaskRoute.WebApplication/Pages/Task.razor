@@ -1,9 +1,15 @@
 @page "/tasks"
 
-<PageTitle>Tasks</PageTitle>
+@{
+    var breadcrumbItems = new List<string> { "Task List" };
+}
+
+<PageTitle>All Tasks</PageTitle>
+
+<Breadcrumb Items="breadcrumbItems" />
 
 <div id="app-content">
-    <h1>Tasks</h1>
+    <h1>All Tasks</h1>
 
     Welcome to your tasks.
 </div>

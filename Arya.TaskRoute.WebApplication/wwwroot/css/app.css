@@ -44,6 +44,10 @@ body {
     grid-area: app-body;
 }
 
+#app-body h1:first-child {
+    margin-top: 0;
+}
+
 #app-content {
     margin: 2rem;
 }

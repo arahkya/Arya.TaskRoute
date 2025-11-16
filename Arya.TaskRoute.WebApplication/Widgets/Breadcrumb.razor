@@ -1,0 +1,13 @@
+<div id="app-breadcrumb">
+    <ul>
+        @foreach (var item in Items)
+        {
+            <li>@item</li>
+        }
+    </ul>
+</div>
+
+@code {
+    [Parameter]
+    public List<string> Items { get; set; } = new List<string>();
+}

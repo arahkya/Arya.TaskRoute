@@ -1,0 +1,32 @@
+#app-breadcrumb {
+    font-size: 0.9rem;
+    margin: 1rem 2rem 0 2rem;
+}
+
+#app-breadcrumb ul {
+    font-size: 0.7rem;
+    margin:0;
+    padding:0;    
+}
+
+#app-breadcrumb ul li {
+    display: inline;
+    margin-right: 5px;
+    
+}
+
+#app-breadcrumb ul li:last-child {
+    font-weight: bold;
+}
+
+#app-breadcrumb ul li::after {
+    content: " >";
+}
+
+#app-breadcrumb ul li:last-child::after {
+    content: "";
+}
+
+#app-breadcrumb ul li:not(:last-child) {
+    color: gray;
+}
