@@ -33,3 +33,7 @@
 #main-nav ul li:has(> a.active) {
     background-color: #d0d0d0;
 }
+
+#main-nav ul:last-child > li:first-child {
+    border-top: 1px solid #ccc;
+}

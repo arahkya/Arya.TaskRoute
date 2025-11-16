@@ -1,17 +1,30 @@
+@using Arya.TaskRoute.WebApplication.Models
 <div id="main-nav">
-    <nav>
+    <nav style="display: flex; flex-direction: column; height: 100%; justify-content: space-between;">
         <ul>
-            <li>
-                <NavLink href="/" Match="NavLinkMatch.All">
-                    Home
-                </NavLink>
-            </li>
-            <li>
-                <NavLink href="/tasks" Match="NavLinkMatch.Prefix">
-                    Tasks
-                </NavLink>
-            </li>
-            <li><a href="/about">About</a></li>
+            @foreach (var item in Items.Where(i => !i.OnBottom))
+            {
+                <li>
+                    <NavLink href="@item.Url" Match="@item.Match">
+                        @item.Title
+                    </NavLink>
+                </li>
+            }
+        </ul>
+        <ul id="bottom-nav">
+            @foreach (var item in Items.Where(i => i.OnBottom))
+            {
+                <li>
+                    <NavLink href="@item.Url" Match="@item.Match">
+                        @item.Title
+                    </NavLink>
+                </li>
+            }
         </ul>
     </nav>
 </div>
+
+@code {
+    [Parameter]
+    public List<AppNavModel> Items { get; set; } = new List<AppNavModel>();
+}
