@@ -1,15 +1,20 @@
 @page "/tasks"
 
 @{
-    var breadcrumbItems = new List<string> { "Task List" };
+    var breadcrumbItems = new List<string> { "List" };
 }
 
 <PageTitle>All Tasks</PageTitle>
 
-<Breadcrumb Items="breadcrumbItems" />
+<PageHeader>
+    <h1 style="margin-bottom: .4rem;">Tasks</h1>
+    <Breadcrumb Items="breadcrumbItems" />
+</PageHeader>
 
 <div id="app-content">
-    <h1>All Tasks</h1>
+    <div style="background-color: white; border-radius: 5px; margin: 1rem; padding: 1rem;">
+        <h1>All Tasks</h1>
 
-    Welcome to your tasks.
+        Welcome to your tasks.
+    </div>
 </div>

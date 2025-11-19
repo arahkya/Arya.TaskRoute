@@ -1,15 +1,20 @@
 ﻿@page "/"
 
 @{
-    var breadcrumbItems = new List<string> { "Welcome" };
+    var breadcrumbItems = new List<string> { "Welcome", "Home", "Greeting" };
 }
 
 <PageTitle>Home</PageTitle>
 
-<Breadcrumb Items="breadcrumbItems" />
-
+<PageHeader>
+    <h1 style="margin-bottom: .4rem;">Greeting</h1>
+    <Breadcrumb Items="breadcrumbItems" />
+</PageHeader>
 <div id="app-content">
-    <h1>Hello, world!</h1>
-
-    Welcome to your new app.
+    <div style="background-color: white; border-radius: 5px; margin: 1rem; padding: 1rem;">
+        Welcome to your new app.
+    </div>
+    <div style="background-color: white; border-radius: 5px; margin: 1rem; padding: 1rem;">
+        Welcome to your new app.
+    </div>
 </div>

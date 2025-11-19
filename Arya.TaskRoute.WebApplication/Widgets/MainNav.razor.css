@@ -1,5 +1,5 @@
 #main-nav {
-    background-color: #f0f0f0;
+    background-color: white;
     height: 100%;
 }
 
@@ -34,6 +34,6 @@
     background-color: #d0d0d0;
 }
 
-#main-nav ul:last-child > li:first-child {
+#main-nav ul:last-child>li:first-child {
     border-top: 1px solid #ccc;
 }

@@ -1,18 +1,18 @@
 #app-breadcrumb {
     font-size: 0.9rem;
-    margin: 1rem 2rem 0 2rem;
+    padding: 0 0 0 2px;
 }
 
 #app-breadcrumb ul {
     font-size: 0.7rem;
-    margin:0;
-    padding:0;    
+    margin: 0;
+    padding: 0;
 }
 
 #app-breadcrumb ul li {
     display: inline;
     margin-right: 5px;
-    
+
 }
 
 #app-breadcrumb ul li:last-child {
