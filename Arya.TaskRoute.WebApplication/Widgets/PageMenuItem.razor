@@ -1,0 +1,13 @@
+@implements Arya.TaskRoute.WebApplication.Widgets.IPageMennuItem
+
+<div>
+    <NavLink href="@Url" style="text-decoration: none; color: inherit;" Match="NavLinkMatch.All">@Text</NavLink>
+</div>
+
+@code {
+    [Parameter]
+    public string Text { get; set; } = string.Empty;
+
+    [Parameter]
+    public string Url { get; set; } = "#";
+}

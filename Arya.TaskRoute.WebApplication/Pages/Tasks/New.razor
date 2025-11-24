@@ -1,0 +1,22 @@
+@page "/tasks/new"
+
+@{
+    var breadcrumbItems = new List<BreadcrumbItem> { new BreadcrumbItem { Text = "List", Url = "/tasks" }, new
+BreadcrumbItem { Text = "New", Url = "/tasks/new" } };
+}
+
+<PageTitle>New Task</PageTitle>
+
+<PageHeader>
+    <h1 style="margin-bottom: .4rem;">Tasks</h1>
+    <Breadcrumb Items="breadcrumbItems" />
+</PageHeader>
+
+<div id="app-content">
+    <div style="background-color: white; border-radius: 5px; margin: 1rem; padding: 1rem;">
+        <h1>New Task</h1>
+
+        Create your tasks.
+    </div>
+
+</div>

@@ -1,7 +1,9 @@
 ﻿@page "/"
 
 @{
-    var breadcrumbItems = new List<string> { "Welcome", "Home", "Greeting" };
+    var breadcrumbItems = new List<BreadcrumbItem> {
+new BreadcrumbItem { Text = "Home", Url = "/" }
+};
 }
 
 <PageTitle>Home</PageTitle>
@@ -11,6 +13,7 @@
     <Breadcrumb Items="breadcrumbItems" />
 </PageHeader>
 <div id="app-content">
+    <PageMenu LeftPageItems="LeftMenus" />
     <div style="background-color: white; border-radius: 5px; margin: 1rem; padding: 1rem;">
         Welcome to your new app.
     </div>
@@ -18,3 +21,10 @@
         Welcome to your new app.
     </div>
 </div>
+
+@code {
+    public IEnumerable<PageMenuItem> LeftMenus => new List<PageMenuItem>
+{
+new PageMenuItem { Text = "Dashboard", Url="/dashboard" }
+};
+}

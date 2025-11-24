@@ -2,12 +2,16 @@
     <ul>
         @foreach (var item in Items)
         {
-            <li>@item</li>
+            <li>
+                <NavLink href="@item.Url" style="text-decoration: none; color: inherit;">
+                    @item.Text
+                </NavLink>
+            </li>
         }
     </ul>
 </div>
 
 @code {
     [Parameter]
-    public List<string> Items { get; set; } = new List<string>();
+    public List<BreadcrumbItem> Items { get; set; } = new List<BreadcrumbItem>();
 }

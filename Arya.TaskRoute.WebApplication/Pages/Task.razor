@@ -1,7 +1,7 @@
 @page "/tasks"
 
 @{
-    var breadcrumbItems = new List<string> { "List" };
+    var breadcrumbItems = new List<BreadcrumbItem> { new BreadcrumbItem { Text = "List", Url = "/tasks" } };
 }
 
 <PageTitle>All Tasks</PageTitle>
@@ -12,9 +12,27 @@
 </PageHeader>
 
 <div id="app-content">
+    <PageMenu LeftPageItems="LeftMenus" RightPageItems="RightMenus" />
     <div style="background-color: white; border-radius: 5px; margin: 1rem; padding: 1rem;">
         <h1>All Tasks</h1>
 
         Welcome to your tasks.
     </div>
+
 </div>
+
+@code {
+    public IEnumerable<PageMenuItem> LeftMenus => new List<PageMenuItem>
+{
+new PageMenuItem { Text = "All Tasks", Url="/tasks/all" },
+new PageMenuItem { Text = "My Tasks", Url="/tasks/my" },
+new PageMenuItem { Text = "Completed Tasks", Url="/tasks/completed" },
+};
+
+    public IEnumerable<PageMenuItem> RightMenus => new List<PageMenuItem>
+{
+new PageMenuItem { Text = "New", Url="/tasks/new" },
+new PageMenuItem { Text = "Filter", Url="/tasks/filter" },
+new PageMenuItem { Text = "Settings", Url="/tasks/settings" },
+};
+}
