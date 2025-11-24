@@ -1,0 +1,12 @@
+<button @onclick="OnClick"
+    style="padding: 0.5rem 1rem; background-color: lightgray; color: white; border: none; border-radius: 3px; cursor: pointer;">
+    @Text
+</button>
+
+@code {
+    [Parameter]
+    public string Text { get; set; } = "Button";
+
+    [Parameter]
+    public EventCallback OnClick { get; set; }
+}
