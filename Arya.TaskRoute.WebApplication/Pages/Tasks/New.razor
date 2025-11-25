@@ -1,6 +1,7 @@
 @page "/tasks/new"
 @using Arya.TaskRoute.WebApplication.Widgets.Buttons
 @using Arya.TaskRoute.WebApplication.Widgets.Forms
+@implements Arya.TaskRoute.WebApplication.Pages.IPage
 
 @{
     var breadcrumbItems = new List<BreadcrumbItem> { new BreadcrumbItem { Text = "List", Url = "/tasks" }, new
@@ -38,6 +39,8 @@ BreadcrumbItem { Text = "New", Url = "/tasks/new" } };
 </div>
 
 @code {
+
+    public string Title => "Task";
 
     [Inject]
     private NavigationManager? NavigationManager { get; set; }

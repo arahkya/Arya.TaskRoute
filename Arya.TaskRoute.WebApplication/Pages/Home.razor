@@ -1,4 +1,5 @@
 ﻿@page "/"
+@implements Arya.TaskRoute.WebApplication.Pages.IPage
 
 @{
     var breadcrumbItems = new List<BreadcrumbItem> {
@@ -27,4 +28,6 @@ new BreadcrumbItem { Text = "Home", Url = "/" }
 {
 new PageMenuItem { Text = "Dashboard", Url="/dashboard" }
 };
+
+    public string Title => "Home";
 }

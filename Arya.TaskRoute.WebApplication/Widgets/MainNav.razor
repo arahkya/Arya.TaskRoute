@@ -1,23 +1,22 @@
 @using Arya.TaskRoute.WebApplication.Models
+
 <div id="main-nav">
     <nav style="display: flex; flex-direction: column; height: 100%; justify-content: space-between;">
         <ul>
             @foreach (var item in Items.Where(i => !i.OnBottom))
             {
-                <li>
-                    <NavLink href="@item.Url" Match="@item.Match">
-                        @item.Title
-                    </NavLink>
+                <li class="@((IsActiveMenu(item)) ? "active" : "")" style="cursor: pointer;"
+                    @onclick="() => OnTapMenuItem(item)">
+                    @item.Title
                 </li>
             }
         </ul>
         <ul id="bottom-nav">
             @foreach (var item in Items.Where(i => i.OnBottom))
             {
-                <li>
-                    <NavLink href="@item.Url" Match="@item.Match">
-                        @item.Title
-                    </NavLink>
+                <li class="@((IsActiveMenu(item)) ? "active" : "")" style="cursor: pointer;"
+                    @onclick="() => OnTapMenuItem(item)">
+                    @item.Title
                 </li>
             }
         </ul>
@@ -25,6 +24,25 @@
 </div>
 
 @code {
+    [Inject]
+    public NavigationManager NavigationManager { get; set; } = null!;
+
     [Parameter]
     public List<AppNavModel> Items { get; set; } = new List<AppNavModel>();
+
+    [Parameter]
+    public Action? OnTapMenu { get; set; }
+
+    private void OnTapMenuItem(AppNavModel item)
+    {
+        NavigationManager.NavigateTo(item.Url);
+        OnTapMenu?.Invoke();
+    }
+
+    private bool IsActiveMenu(AppNavModel item)
+    {
+        var uri = NavigationManager.ToBaseRelativePath(NavigationManager.Uri).TrimEnd('/');
+
+        return uri.Equals(item.Url.TrimStart('/').TrimEnd('/'), StringComparison.OrdinalIgnoreCase);
+    }
 }

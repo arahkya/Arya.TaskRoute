@@ -101,7 +101,22 @@ body {
     }
 
     #app-nav {
-        display: none;
+        position: absolute;
+        left: -100%;
+        top: 75px;
+        height: calc(100vh - 75px);
+        transition: left 0.3s ease-in-out;
+    }
+
+    #app-nav.active {
+        display: block;
+        position: absolute;
+        top: 75px;
+        width: 100%;
+        height: calc(100vh - 75px);
+        background-color: white;
+        z-index: 1000;
+        left: 0;
     }
 
     #app-user-section {

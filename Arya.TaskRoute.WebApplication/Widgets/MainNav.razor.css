@@ -12,10 +12,24 @@
 #main-nav ul li {
     padding: 10px 15px;
     border-bottom: 1px solid #ccc;
+    display: flex;
+    align-items: center;
 }
 
 #main-nav ul li:hover {
     background-color: #e0e0e0;
+}
+
+#main-nav ul li.active {
+    background-color: #d0d0d0;
+    font-weight: bold;
+}
+
+@media screen and (max-width: 768px) {
+    #main-nav ul li {
+        height: 3rem;
+        font-size: larger;
+    }
 }
 
 #main-nav ul li ::deep a {
