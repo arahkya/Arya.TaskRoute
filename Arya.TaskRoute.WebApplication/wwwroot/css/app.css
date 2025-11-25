@@ -30,16 +30,35 @@ body {
     padding: 1rem;
     grid-area: app-header;
     border-bottom: 1px solid black;
+    display: flex;
+    align-items: flex-end;
 }
 
-#app-header #title {
+#app-hamburger {
+    display: none;
+    width: 2.5rem;
+    cursor: pointer;
+    margin-right: .6rem;
+}
+
+#app-title {
     font-size: 2rem;
     font-weight: bold;
+    display: flex;
 }
 
-#app-header #sub-title {
+#app-sub-title {
     font-size: 0.9rem;
     opacity: .4;
+    margin-left: 1rem;
+    margin-bottom: .3rem;
+}
+
+#app-user-section {
+    position: absolute; 
+    top: 10px; 
+    right: 10px; 
+    display: flex;
 }
 
 #app-body {
@@ -57,6 +76,37 @@ body {
 
 #app-nav {
     grid-area: app-nav;
+}
+
+@media screen and (max-width: 768px) {
+    #app {
+        grid-template-rows: auto 1fr;
+        grid-template-columns: 1fr;
+        grid-template-areas: "app-header"
+            "app-body";
+    }
+
+    #app-hamburger {
+        display: block;
+    }
+
+    #app-title {
+        margin-left: auto;
+        margin-right: auto;
+        padding-right: 3rem;
+    }
+
+    #app-sub-title {
+        display: none;
+    }
+
+    #app-nav {
+        display: none;
+    }
+
+    #app-user-section {
+        display: none;
+    }
 }
 
 .valid.modified:not([type=checkbox]) {
