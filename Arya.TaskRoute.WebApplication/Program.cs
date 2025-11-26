@@ -19,7 +19,7 @@ public class Program
             var appRootModel = new AppRootModel();
             appRootModel.MainNavItems = new List<AppNavModel>
             {
-                new AppNavModel { Title = "Home", Url = "/", Name = "home", Order = 1, Match = Microsoft.AspNetCore.Components.Routing.NavLinkMatch.All },
+                new AppNavModel { Title = "Home", Url = "/", Name = "home", Order = 1, IsActive = true, Match = Microsoft.AspNetCore.Components.Routing.NavLinkMatch.All },
                 new AppNavModel { Title = "Tasks", Url = "/tasks", Name = "tasks", Order = 2 },
                 new AppNavModel { Title = "Plan", Url = "/plan", Name = "plan", Order = 3 },
                 new AppNavModel { Title = "People", Url = "/people", Name = "people", Order = 4 },

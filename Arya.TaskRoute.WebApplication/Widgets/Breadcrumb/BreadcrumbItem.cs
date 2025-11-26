@@ -1,4 +1,4 @@
-namespace Arya.TaskRoute.WebApplication.Widgets
+namespace Arya.TaskRoute.WebApplication.Widgets.Breadcrumb
 {
     public class BreadcrumbItem
     {

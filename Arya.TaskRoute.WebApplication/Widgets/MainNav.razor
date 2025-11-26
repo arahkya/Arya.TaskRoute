@@ -5,7 +5,7 @@
         <ul>
             @foreach (var item in Items.Where(i => !i.OnBottom))
             {
-                <li class="@((IsActiveMenu(item)) ? "active" : "")" style="cursor: pointer;"
+                <li class="@((item.IsActive) ? "active" : "")" style="cursor: pointer;"
                     @onclick="() => OnTapMenuItem(item)">
                     @item.Title
                 </li>
@@ -14,7 +14,7 @@
         <ul id="bottom-nav">
             @foreach (var item in Items.Where(i => i.OnBottom))
             {
-                <li class="@((IsActiveMenu(item)) ? "active" : "")" style="cursor: pointer;"
+                <li class="@((item.IsActive) ? "active" : "")" style="cursor: pointer;"
                     @onclick="() => OnTapMenuItem(item)">
                     @item.Title
                 </li>
@@ -35,14 +35,13 @@
 
     private void OnTapMenuItem(AppNavModel item)
     {
+        foreach (var navItem in Items)
+        {
+            navItem.IsActive = false;
+        }
+
+        item.IsActive = true;
         NavigationManager.NavigateTo(item.Url);
         OnTapMenu?.Invoke();
-    }
-
-    private bool IsActiveMenu(AppNavModel item)
-    {
-        var uri = NavigationManager.ToBaseRelativePath(NavigationManager.Uri).TrimEnd('/');
-
-        return uri.Equals(item.Url.TrimStart('/').TrimEnd('/'), StringComparison.OrdinalIgnoreCase);
     }
 }
