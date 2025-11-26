@@ -1,24 +1,16 @@
-@typeparam TPageItem where TPageItem : IPageMennuItem
-
 <div style="display: flex; justify-content: space-between; padding: 1rem 2rem; background-color: white;">
     <div style="display: flex; gap: 1rem; align-items: center;">
-        @foreach (var item in LeftPageItems)
-        {
-            <PageMenuItem Text="@item.Text" Url="@item.Url" />
-        }
+        @LeftMenus
     </div>
     <div style="display: flex; gap: 1rem; align-items: center;">
-        @foreach (var item in RightPageItems)
-        {
-            <PageMenuItem Text="@item.Text" Url="@item.Url" />
-        }
+        @RightMenus
     </div>
 </div>
 
 @code {
     [Parameter]
-    public IEnumerable<TPageItem> LeftPageItems { get; set; } = [];
+    public RenderFragment? LeftMenus { get; set; }
 
     [Parameter]
-    public IEnumerable<TPageItem> RightPageItems { get; set; } = [];
+    public RenderFragment? RightMenus { get; set; }
 }

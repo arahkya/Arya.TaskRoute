@@ -14,7 +14,11 @@ new BreadcrumbItem { Text = "Home", Url = "/" }
     <Breadcrumb Items="breadcrumbItems" />
 </PageHeader>
 <div id="app-content">
-    <PageMenu LeftPageItems="LeftMenus" />
+    <PageMenu>
+        <LeftMenus>
+            <PageMenuItem Text="Dashboard" Url="/dashboard" />
+        </LeftMenus>
+    </PageMenu>
     <div style="background-color: white; border-radius: 5px; margin: 1rem; padding: 1rem;">
         Welcome to your new app.
     </div>
@@ -24,10 +28,5 @@ new BreadcrumbItem { Text = "Home", Url = "/" }
 </div>
 
 @code {
-    public IEnumerable<PageMenuItem> LeftMenus => new List<PageMenuItem>
-{
-new PageMenuItem { Text = "Dashboard", Url="/dashboard" }
-};
-
     public string Title => "Home";
 }

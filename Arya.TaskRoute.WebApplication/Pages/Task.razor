@@ -12,7 +12,16 @@
 </PageHeader>
 
 <div id="app-content">
-    <PageMenu LeftPageItems="LeftMenus" RightPageItems="RightMenus" />
+    <PageMenu>
+        <LeftMenus>
+            <PageMenuItem Text="All Tasks" Url="/tasks" />
+            <PageMenuItem Text="My Tasks" Url="/tasks/my-tasks" />
+            <PageMenuItem Text="Completed Tasks" Url="/tasks/completed" />
+        </LeftMenus>
+        <RightMenus>
+            <PageMenuItem Text="Create Task" Url="/tasks/new" />
+        </RightMenus>
+    </PageMenu>
     <div style="background-color: white; border-radius: 5px; margin: 1rem; padding: 1rem;">
         <h1>All Tasks</h1>
 
@@ -20,19 +29,3 @@
     </div>
 
 </div>
-
-@code {
-    public IEnumerable<PageMenuItem> LeftMenus => new List<PageMenuItem>
-{
-new PageMenuItem { Text = "All Tasks", Url="/tasks/all" },
-new PageMenuItem { Text = "My Tasks", Url="/tasks/my" },
-new PageMenuItem { Text = "Completed Tasks", Url="/tasks/completed" },
-};
-
-    public IEnumerable<PageMenuItem> RightMenus => new List<PageMenuItem>
-{
-new PageMenuItem { Text = "New", Url="/tasks/new" },
-new PageMenuItem { Text = "Filter", Url="/tasks/filter" },
-new PageMenuItem { Text = "Settings", Url="/tasks/settings" },
-};
-}
